@@ -1,0 +1,146 @@
+Signals and Systems:
+- Can be:
+	- A signal is a time varying physical phenomenon which is intended to convey information
+	- Signal is a function of time
+	- Signal is a function of one or more independent variables, which contain some information
+- What is a system? 
+	- A device or combination of devices, which can operate on signals and produces a corresponding response 
+	- Input is excitation 
+	- Output is response
+- Some basic signals include:
+	- Unit step function
+		- Denoted by u(t) 
+		- 1 when t is greater than or equal to 0, 0 otherwise
+	- Unit Impulse Function
+		- Denoted by δ(t) , 1 when t = 0 and 0 when t != 0
+	- Ramp Signal
+		- Denoted by r(t), t when t is greater than or equal to zero, zero otherwise
+	- Parabolic Signal
+		- Defined as x(t), where t is t^2 / 2 when t is greater than or equal to zero, zero otherwise
+	- Signum Function
+		- Denoted as sgn(t)
+		- 1 when t > 0 , 0 when t = 0, and -1 when t < 0
+	- Exponential Signal
+		- The form of x(t) =  e^αt
+		- Three Cases:
+			- If α = 0 then x(t) = e^0 = 1
+			- If α < 0 then x(t) = e^-αt (decarying exponential)
+			- If α > 0 then x(t) = e^αt (raising exponential
+	- Rectangular Signal
+		- ?
+	- Triangular Signal
+		- ?
+	- Sinusoidal Signal
+		- x(t) = A cos(w0±ϕ) or A sin(w0±ϕ)
+	- Sinc Function
+		- Denoted as sinc(t), (t)=sinπt/πt
+	- Sampling Function
+		- sa(t) = sin t / t
+- Signals are classified into the following categories 
+	- Continuous Time and Discrete Time Signals
+		- Said to be continuous when it is defined for all instants of time
+		- Said to be discrete when it is defined at only discrete instants of time
+	- Deterministic and Non-Deterministic Signals
+		- Said to be deterministic if there is no uncertainty with respect to it's value at any instant of time
+		- Said to be non-deterministic if there is uncertainty to it's value at some instant of time. AKA random signals. Modelled in probabilistic terms
+	- Even and Odd Signals
+		- Said to be even when x(t) = x(-t)
+		- Said to be odd when x(t) = -x(-t)
+	- Periodic and Aperiodic Signals 
+		- A signal is said to be periodic if it satisfies the condition x(t) = x(t + T) or x(n) = x(n + N) where T = fundamental time period and 1/T = f = fundamental frequency
+		- When the signal repeats for every time interval T0, it is periodic with T0
+	- Energy and Power Signals
+		- A signal is said to be an energy signal when it has finite energy
+		- A signal is said to be power signal when it has finite power
+		- Cannot be both at the same time
+		- Can be neither 
+		- Power of energy signal = 0
+		- Energy of power signal = ∞
+	- Real and Imaginary Signals
+		- Signal is said to be real when it satisfies the condition x(t) = x*(t) 
+		- Said to be odd when it satisfies the condition x(t) = -x*(t) 
+
+**Signals Basic Operations**
+- There are two variable parameters in general
+	- Amplitude
+		- Amplitude Scaling 
+			- C x(t) is an amplitude scaled version of x(t) whose amplitude is scaled by a factor C
+		- Addition 
+			- Addition of their corresponding amplitudes 
+		- Subtraction 
+			- Subtraction of their corresponding amplitudes
+		- Multiplication 
+			- Multiplication of their corresponding amplitudes
+	- Time
+		- Time Shifting
+			- x(t ± t0) is a time shifted version of the signal x(t)
+				- x(t + t0) -> negative shift
+				- x(t - t0) -> positive shift 
+		- Time Scaling
+			- x(At) is time scaled version of the signal x(t), where A is always positive 
+			- |A| > 1 -> compression
+			- |A| < 1 -> expansion
+		- Time Reversal
+			- x(-t) is the time reversal of the signal x(t)
+			
+**Systems**
+- Classified into the following categories :
+	- Linear and Non-Linear 
+		- A system is linear when it satisfies the superposition and homogenate principles
+		- Superposition:
+			- If you add two inputs together, the output is the sum of the outputs of the individual inputs 
+		- Homogeneity:
+			- You can scale a system by a constant factor
+		- Non linear when it does not satisfy both
+	- Time Variant and Time Invariant
+		- A system is time variant if it's input and output characteristics vary with time. Otherwise, it is time invariant
+		- (input change) y(n,t) = y(n-t) (output change)
+		- invariant: y(n,t) != y(n-t)
+	- Linear Time Variant and Linear Time Invariant 
+		- If a system is both linear and time variant, then it is linear time variant (LTV)
+		- If both linear and time invariant, then it is linear time invariant (LTI)
+	- Static and Dynamic 
+		- A static system is memory-less while a dynamic system is a memory system
+		- memory-less:
+			- only relies on present input
+		- memory:
+			- relies on past input/values
+	- Casual and Non-Casual 
+		- A system is casual if it's ouput depends upon present and past inputs, and does not depend on future input
+		- Non-casual if the output depends on future inputs
+	- Invertible and Non-Invertible 
+		- A system is invertible if the input of the system appears at the output
+		- If y(t) != x(t), then the system is non-invertible
+	- Stable and Unstable 
+		- A system is stable only when the output is bounded for bounded input. If the input is bounded, and the output is unbounded, the system is unstable
+		- For a bounded signal, the amplitude is finite
+
+**Vectors and Signals**
+- Vector: 
+	- Magnitude and Direction
+	- Any vector v1 can be expressed in terms of another vector v2, where v1=c12v2 + ve , where ve is the error vector
+	- you can express v1 using v2 by using many different ve 
+	- if c12 is 0, then two signals are said to be orthogonal
+- The concept of orthogonality can be applied to signals
+	- Consider two signals f1(t) and f2(t). You can approximate f1(t) in terms of f2(t) as:
+		- f1(t) = c12 f2(t) + fe(t) for (t1 < t < t2)
+		- or, fe(t) = f1(t) - c12 f2(t)
+	- One possible way to minimize the error is to integrate over the interval t1 to t2
+		- Then take the square of error function
+- Orthogonal Vector Space
+	- A complete set of orthogonal vectors is referred to as orthogonal vector space
+	- Consider a vector A at point (x1, y1, x1). Also consider three unit vectors (Vx, Vy, Vz) in the direction of the X, Y, and Z axis respectively. Since these unit vectors are mutually orthogonal, it satisfies that 
+		- VxVx = VyVy = VzVz = 1
+		- VxVy = VyVz = VzVx = 0
+		- So, VaVb = 1 when a = b and 0 when a != b
+	- Any vectors in this three dimensional space can be represented in terms of these three unit vectors only 
+- Orthogonal Signal Space
+	- Each signal is represented as a vector in space, and all vectors are orthogonal to each other (any two signals have to satisfy the orthogonality condition)
+	- Dot product of any given vector is zero
+- Mean Square Error
+	- Average of Square Error function fe(t) is called mean square error. It is denoted by ε (epsilon symbol)
+- Closed and Complete Sets of Orthogonal Functions
+	- A set of n mutually orthogonal functions over t1 to t2 is closed and complete when there is no function f(t) to satisfy the condition integral t1 t2 of f(t)xk(t)dt = 0
+	- If there is a function f(t) which satisfies the equation, then f(t) is said to be orthogonal to each and every function of orthogonal set. This set is then said to be incomplete without f(t), and becomes closed and complete when f(t) is included.
+- Write about orthogonality in complex functions
+	- etc etc
